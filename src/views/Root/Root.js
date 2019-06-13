@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import ShoppingsView from '../ShoppingsView/ShoppingsView';
+import ShoppingView from '../ShoppingView/ShoppingView';
 import ToDosView from '../ToDosView/ToDosView';
 import Navigation from '../../components/Navigation/Navigation';
 
@@ -10,7 +10,7 @@ const Root = () => (
         <Navigation />
         <h1 className="mainHeader">Hello world!</h1>
            <Switch>
-              <Route exact path="/" component={ShoppingsView} />
+              <Route exact path="/" component={ShoppingView} />
               <Route path="/todo" component={ToDosView} />
            </Switch>
         </>

@@ -1,0 +1,19 @@
+.wrapper {
+  text-align: center;
+}
+
+.navItem {
+  list-style: none;
+  display: inline-block;
+  margin-right: 70px;
+  font-size: 1.5em;
+
+  &Link {
+    text-decoration: none;
+    color: #000000;
+
+    &Active {
+      font-weight: 900;
+    }
+  }
+}

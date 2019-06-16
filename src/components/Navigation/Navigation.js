@@ -1,10 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import styles from './Navigation.module.scss';
 
 const Navigation = () => (
-    <ul>
-        <li><Link to ="/">Shopping</Link></li>
-        <li><Link to ="/todo">ToDo</Link></li>
+    <ul className={styles.wrapper}>
+        <li className={styles.navItem}>
+            <NavLink
+                exact
+                activeClassName={styles.navItemLinkActive}
+                className={styles.navItemLink} to ="/">Shopping</NavLink>
+        </li>
+        <li className={styles.navItem}>
+            <NavLink
+                activeClassName={styles.navItemLinkActive}
+                className={styles.navItemLink} to ="/todo">To do</NavLink>
+        </li>
     </ul>
 );
 

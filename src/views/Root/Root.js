@@ -4,6 +4,8 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import ShoppingViewWrapper from '../ShoppingViewWrapper/ShoppingViewWrapper';
 import ToDosView from '../ToDosView/ToDosView';
 import Navigation from '../../components/Navigation/Navigation';
+import Modal from '../../components/Modal/Modal';
+
 
 const Root = () => (
     <BrowserRouter className="wrapper">
@@ -14,6 +16,7 @@ const Root = () => (
               <Route exact path="/" component={ShoppingViewWrapper} />
               <Route path="/todo" component={ToDosView} />
            </Switch>
+            <Modal />
         </>
     </BrowserRouter>
 );

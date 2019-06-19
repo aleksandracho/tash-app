@@ -4,11 +4,13 @@ import styles from './Form.module.scss';
 class Form extends React.Component {
     state = {
         name: "",
+        amount: "",
+        category: "",
     };
 
-    changeName = e => {
+        handleInputChange = e => {
         this.setState({
-            name: e.target.value,
+            [e.target.name]: e.target.value,
         });
     };
 
@@ -16,18 +18,30 @@ class Form extends React.Component {
 
         console.log(this.state.name);
 
+
         return (
             <>
                 <p className={styles.paragraph}>Remember me to buy:</p>
                 <form className={styles.form}>
                     <input
                         className={styles.input}
-                        onChange={this.changeName}
+                        onChange={this.handleInputChange}
                         placeholder="name"
+                        name="name"
                     />
-                    <input className={styles.input} placeholder="amount"/>
-                    <input className={styles.input} placeholder="category"/>
-                    <input className={styles.img}placeholder="image"/>
+                    <input className={styles.input}
+                           onChange={this.handleInputChange}
+                           placeholder="amount"
+                           name="amount"
+                    />
+                    <input className={styles.input}
+                            onChange={this.handleInputChange}
+                            placeholder="category"
+                            name="category"
+                    />
+                    <input className={styles.img}
+                           placeholder="image"
+                    />
                 </form>
                 <button className={styles.button}>add</button>
             </>

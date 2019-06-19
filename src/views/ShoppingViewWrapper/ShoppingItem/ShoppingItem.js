@@ -16,8 +16,8 @@ const ShoppingItem = ({
             />
             <div>
                 <h2 className={styles.name}>{name}</h2>
-                <p className={styles.amount}>{amount}</p>
-                <p className={styles.category}>{category}</p>
+                <p className={styles.item}>{amount}</p>
+                <p className={styles.item}>{category}</p>
             </div>
         </li>
     );

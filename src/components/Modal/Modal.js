@@ -2,10 +2,10 @@ import React from 'react';
 import styles from './Modal.module.scss';
 import Form from '../Form/Form';
 
-const Modal = () => (
+const Modal = ({ closeModal, addItem }) => (
     <div className={styles.wrapper}>
-        {/*@TODO: sdfsdfsfsd*/}
-        <Form />
+        <button className={styles.closeButton} onClick={closeModal} />
+        <Form addItem={addItem}/>
     </div>
 );
 

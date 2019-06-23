@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShoppingList } from '../../data/ShoppingList';
+import { ShoppingList } from  '../Root/Root'
 import ShoppingItem from './ShoppingItem/ShoppingItem';
 import styles from './ShoppingViewWrapper.module.scss'
 

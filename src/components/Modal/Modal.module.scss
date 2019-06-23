@@ -2,7 +2,7 @@
   left: 0;
   right: 0;
   width: 20vw;
-  height: 40vh;
+  height: 35vh;
   top: 50%;
   transform: translateY(-50%);
   margin: 0 auto;
@@ -10,3 +10,13 @@
   box-shadow: 0 20px 30px -15px rgba(#818181, 0.6);
   position: fixed;
 };
+
+.closeButton {
+  width: 27px;
+  height: 27px;
+  background: #1e58ff;
+  border: none;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}

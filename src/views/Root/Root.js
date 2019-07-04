@@ -11,7 +11,7 @@ class Root extends React.Component {
     state = {
         items: [],
         toDos: [],
-        isModalOpen: true,
+        isModalOpen: false,
     };
 
     addItem = (e) => {

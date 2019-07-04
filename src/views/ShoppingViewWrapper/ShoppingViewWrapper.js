@@ -1,14 +1,20 @@
 import React from 'react';
-import { ShoppingList } from  '../Root/Root'
 import ShoppingItem from './ShoppingItem/ShoppingItem';
-import styles from './ShoppingViewWrapper.module.scss'
+import styles from './ShoppingViewWrapper.module.scss';
+import AppContext from '../../context'
 
 const ShoppingViewWrapper = () => (
-    <ul className={styles.shoppingViewWrapper}>
-        {ShoppingList.map( (item) => (
-            <ShoppingItem key={item.name} {...item} />
-        ))}
-    </ul>
+    <AppContext.Consumer>
+        {(context) => {
+            return (
+                <ul className={styles.shoppingViewWrapper}>
+                    {context.items.map( (item) => (
+                        <ShoppingItem key={item.name} {...item} />
+                    ))}
+                </ul>)
+        }}
+
+    </AppContext.Consumer>
 );
 
 export default ShoppingViewWrapper;

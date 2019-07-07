@@ -25,7 +25,7 @@ const ShoppingItem = ({
 
 ShoppingItem.propTypes = {
     name: PropTypes.string.isRequired,
-    amount: PropTypes.number,
+    amount: PropTypes.string,
     category: PropTypes.string,
 
 

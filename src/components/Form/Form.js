@@ -1,6 +1,8 @@
 import React from 'react';
 import AppContext from '../../context';
 import styles from './Form.module.scss';
+import Input from '../Input/Input';
+import Radio from '../Radio/Radio';
 
 const types = {
     items: "items",
@@ -8,7 +10,7 @@ const types = {
 };
 
 const descriptions = {
-    shopping: "buy:",
+    items: "buy:",
     toDo: "do:"
 };
 
@@ -29,80 +31,58 @@ class Form extends React.Component {
 
     handleInputChange = (e) => {
         this.setState({
-            [e.target.name]: e.target.value,
+            [e.target.name]: e.target.name === "amount" ? parseInt(e.target.value) : e.target.value,
         });
     };
 
     render() {
-        const { actionType } = this.state;
+        const {actionType} = this.state;
         return (
             <AppContext.Consumer>
                 {context => (
                     <form
                         onSubmit={(e) => context.addItem(e, this.state)}
-                        className={styles.form}>
-                        <div className={styles.radio}>
-                            <input
-                                className={styles.shopping}
-                                id={types.items}
-                                type="radio"
-                                checked={actionType === types.items}
-                                onChange={() => this.handleRadioButtonChange(types.items)}
-                            />
-                            <label
-                                htmlFor={types.items}>
-                                Shopping</label>
-                        </div>
-                        <div className={styles.radio}>
-                            <input
-                                id={types.toDo}
-                                type="radio"
-                                checked={actionType === types.toDo}
-                                onChange={() => this.handleRadioButtonChange(types.toDo)}
-                            />
-                            <label
-                                htmlFor={types.toDo}>
-                                To do</label>
-                        </div>
-                        <p className={styles.paragraph}>Remind me to {descriptions[this.state.actionType]}</p>
-                        <input
-                            type="text"
-                            className={styles.input}
-                            value={this.state.value}
-                            onChange={this.handleInputChange}
-                            placeholder="name"
-                            name="name"
-                            autoComplete="off"
+                        className={styles.form}
+                    >
+                        <Radio
+                            id={types.items}
+                            checked={actionType === types.items}
+                            onChange={() => this.handleRadioButtonChange(types.items)}
+                            htmlFor={types.items}
+                            child="Shopping"
                         />
-
-                        {this.state.actionType === types.items ?
-                            <input
-                                type="text"
-                                className={styles.input}
-                                value={this.state.value}
-                                onChange={this.handleInputChange}
-                                placeholder="amount"
-                                name="amount"
-                                autoComplete="off"
-                            />
-                            : null}
-
-                        {this.state.actionType === types.items ?
-                            <input
-                                type="text"
-                                className={styles.input}
-                                value={this.state.value}
-                                onChange={this.handleInputChange}
-                                autoComplete="off"
-                                placeholder="category"
-                                name="category"
-                            />
-                            : null}
-
+                        <Radio
+                            id={types.toDo}
+                            checked={actionType === types.toDo}
+                            onChange={() => this.handleRadioButtonChange(types.toDo)}
+                            htmlFor={types.toDo}
+                            child="To do"
+                        />
+                        <p className={styles.paragraph}>Remind me to {descriptions[this.state.actionType]}</p>
+                        <Input
+                            handleInputChange={this.handleInputChange}
+                            value={this.state.name}
+                            name="name"
+                            showInput={true}
+                            type="text"
+                        />
+                        <Input
+                            handleInputChange={this.handleInputChange}
+                            value={this.state.amount}
+                            name="amount"
+                            showInput={this.state.actionType === types.items}
+                            type="number"
+                        />
+                        <Input
+                            handleInputChange={this.handleInputChange}
+                            value={this.state.category}
+                            name="category"
+                            type="text"
+                            showInput={this.state.actionType === types.items}
+                        />
                         <input className={styles.img}
                                placeholder="image"
                         />
-
                         <button
                             type="submit"
                             className={styles.button}

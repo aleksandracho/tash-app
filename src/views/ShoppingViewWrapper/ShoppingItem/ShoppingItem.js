@@ -25,11 +25,10 @@ const ShoppingItem = ({
 
 ShoppingItem.propTypes = {
     name: PropTypes.string.isRequired,
-    amount: PropTypes.string,
+    amount: PropTypes.number,
     category: PropTypes.string,
-
-
 };
+
 ShoppingItem.defaultProps = {
     image: 'https://unsplash.it/100/100',
 };
